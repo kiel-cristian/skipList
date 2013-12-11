@@ -1,76 +1,6 @@
-from math import randint
 
-class ABBTree(object):
-    def __init__(self):
-        self.key = None
-    def add(self, key):
-        pass
-    def search(self, key):
-        pass
-    def setKey(self, key):
-        pass
-
-class ABBNode(ABBTree):
-    def __init__(self, left, rigth, key):
-        super(ABBNode, self).__init__()
-        self.left  = left
-        self.rigth = rigth
-        self.key   = key
-
-    def add(self, key):
-        if self.key < key:
-            self.left  = self.left.add(key)
-        else:
-            self.rigth = self.rigth.add(key)
-        return self
-
-    def search(self, key):
-        if self.key < key:
-            return self.left.search(key)
-        elif self.key > key:
-            return self.rigth.search(key)
-        else:
-            return True
-        return False
-
-    def setKey(self, key):
-        self.key = key
-        return self
-
-class ABBLeaf(ABBTree):
-    def __init__(self, key):
-        super(ABBLeaf, self).__init__()
-        self.key   = key
-
-    def add(self, key):
-        new_self = self
-
-        if self.key < key:
-            new_self = ABBNode(ABBLeaf(self.key), ABBLeaf(), key)
-        else:
-            new_self = ABBNode(ABBLeaf(), ABBLeaf(self.key), self.key)
-
-        return new_self
-
-    def search(self, key):
-        if self.key == key:
-            return True
-        else:
-            return False
-
-    def setKey(self, key):
-        self.key = key
-        return self
-
-class ABBEmptyLeaf(ABBTree):
-    def add(self, key):
-        return ABBLeaf(key)
-
-    def setKey(self, key):
-        return ABBLeaf(key)
-
-    def search(self, key):
-        return False
+from random import randint
+from ABBTree import *
 
 class ABBRandom(object):
     def __init__(self):
@@ -88,7 +18,7 @@ class ABBRandom(object):
         self.key_n = self.key_n + 1
 
     def search(self, key):
-        return self.root.search(key)
+        return self.root.search(0, key)
 
     def addOnRoot(self, key):
         root_key = self.root.key
