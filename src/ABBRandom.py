@@ -1,13 +1,18 @@
 from math import randint
 
 class ABBTree(object):
+    def __init__(self):
+        self.key = None
     def add(self, key):
         pass
     def search(self, key):
         pass
+    def setKey(self, key):
+        pass
 
 class ABBNode(ABBTree):
     def __init__(self, left, rigth, key):
+        super(ABBNode, self).__init__()
         self.left  = left
         self.rigth = rigth
         self.key   = key
@@ -28,19 +33,23 @@ class ABBNode(ABBTree):
             return True
         return False
 
+    def setKey(self, key):
+        self.key = key
+        return self
+
 class ABBLeaf(ABBTree):
-    def __init__(self, key = None):
+    def __init__(self, key):
+        super(ABBLeaf, self).__init__()
         self.key   = key
 
     def add(self, key):
         new_self = self
 
-        if self.key == None:
-            new_self.key = key
-        elif self.key < key:
+        if self.key < key:
             new_self = ABBNode(ABBLeaf(self.key), ABBLeaf(), key)
         else:
             new_self = ABBNode(ABBLeaf(), ABBLeaf(self.key), self.key)
+
         return new_self
 
     def search(self, key):
@@ -49,26 +58,40 @@ class ABBLeaf(ABBTree):
         else:
             return False
 
-class ABBRandom(ABBTree):
+    def setKey(self, key):
+        self.key = key
+        return self
+
+class ABBEmptyLeaf(ABBTree):
+    def add(self, key):
+        return ABBLeaf(key)
+
+    def setKey(self, key):
+        return ABBLeaf(key)
+
+    def search(self, key):
+        return False
+
+class ABBRandom(object):
     def __init__(self):
-        self.root = ABBLeaf()
-        self.key_n    = 0
+        self.root  = ABBEmptyLeaf()
+        self.key_n = 0
 
     def add(self, key):
         rand = randint(0, self.key_n)
+
         if rand == self.key_n:
             self.addOnRoot(key)
         else:
             self.root = self.root.add(key)
+
         self.key_n = self.key_n + 1
 
     def search(self, key):
-        if self.root == None:
-            return False
-        else:
-            return self.root.search(key)
+        return self.root.search(key)
 
     def addOnRoot(self, key):
         root_key = self.root.key
-        self.root.key = key
-        self.root = self.root.add(root_key)
+        self.root = self.root.setKey(key)
+        if root_key != None:
+            self.root = self.root.add(root_key)
