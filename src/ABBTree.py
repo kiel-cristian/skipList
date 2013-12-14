@@ -11,28 +11,28 @@ class ABBTree(object):
         pass
 
 class ABBNode(ABBTree):
-    def __init__(self, left, rigth, key):
+    def __init__(self, left, right, key):
         super(ABBNode, self).__init__()
         self.left  = left
-        self.rigth = rigth
+        self.right = right
         self.key   = key
 
     def add(self, key):
-        if self.key < key:
+        if self.key > key:
             self.left  = self.left.add(key)
         else:
-            self.rigth = self.rigth.add(key)
+            self.right = self.right.add(key)
         return self
 
     def search(self, compares, key):
         new_compares = compares
 
-        if self.key < key:
+        if self.key > key:
             new_compares = new_compares + 1
             return self.left.search(new_compares, key)
-        elif self.key > key:
+        elif self.key < key:
             new_compares = new_compares + 1
-            return self.rigth.search(new_compares, key)
+            return self.right.search(new_compares, key)
 
         return ABBSearch(new_compares, True)
 
@@ -49,9 +49,9 @@ class ABBLeaf(ABBTree):
         new_self = self
 
         if self.key < key:
-            new_self = ABBNode(ABBLeaf(self.key), ABBLeaf(), key)
+            new_self = ABBNode(ABBEmptyLeaf(), ABBLeaf(key), self.key)
         else:
-            new_self = ABBNode(ABBLeaf(), ABBLeaf(self.key), self.key)
+            new_self = ABBNode(ABBLeaf(key), ABBEmptyLeaf(), self.key)
 
         return new_self
 
@@ -77,6 +77,6 @@ class ABBEmptyLeaf(ABBTree):
         return ABBSearch(0, False)
 
 class ABBSearch(object):
-    def __init__(self, compares, founded):
+    def __init__(self, compares, found):
         self.compares = compares
-        self.founded  = founded
+        self.found  = found
