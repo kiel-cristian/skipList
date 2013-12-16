@@ -1,13 +1,11 @@
 from random import randint, seed
 
 class SkipNode(object):
-    
     def __init__(self, height = 0, key = None):
         self.key = key
         self.next = [None]*height
 
 class SkipList(object):
-
     def __init__(self):
         self.head = SkipNode()
         self.len = 0
@@ -37,7 +35,7 @@ class SkipList(object):
         while len(self.head.next) < len(node.next):
             self.head.next.append(None)
 
-        update = self.closestNodes(key)            
+        update = self.closestNodes(key)
         if self.search(key, update) == None:
             for i in range(len(node.next)):
                 node.next[i] = update[i].next[i]
@@ -52,7 +50,7 @@ class SkipList(object):
             if candidate != None and candidate.key == key:
                 return candidate
         return None
-    
+
     def contains(self, key, update = None):
         return self.search(key, update) != None
 
