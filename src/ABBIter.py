@@ -58,7 +58,8 @@ class ABB(object):
 
 class Node(object):
     def __init__(self, parent, key):
-        self.parent = parent    "Se mantiene referencia al padre para las rotaciones"
+        "Se mantiene referencia al padre para las rotaciones"
+        self.parent = parent
         self.left  = None
         self.right = None
         self.key   = key
