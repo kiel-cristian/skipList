@@ -1,33 +1,57 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
 
 from random import randint
-from ABBTree import *
+from ABB import *
 
-class ABBRandom(object):
+class ABBRandom(ABB):
     '''
     Cabezera de árbol binario aleatorizado
     '''
     def __init__(self):
-        self.root  = ABBEmptyLeaf()
-        self.key_n = 0
+        super(ABBRandom, self).__init__()
 
     def insert(self, key):
         '''
         Inserción aleatorizada, inserta con probabilidad 1/n en la raíz, si no,
         se efectúa una inserción normal
         '''
-        rand = randint(0, self.key_n)
+        (node, comps) = self.add_node(key)
+        if randint(1, self.nodes) == self.nodes:
+            self.set_as_root(node)
+        return comps
 
-        if rand == self.key_n:
-            # Insercion en la raíz
-            self.root = self.root.insert_on_root(self.root, key)
-        else:
-            # Inserción normal
-            self.root = self.root.insert(key)
-
-        self.key_n = self.key_n + 1
-
-    def search(self, key):
+    def rotate_right(self, node):
         '''
-        Búsqueda en el árbol común
+        Rotacion de nodo derecho con respecto a su padre
         '''
-        return self.root.search(0, key)
+        parent = node.parent
+        node.parent = parent.parent
+        parent.parent = node
+        parent.left = node.right
+        node.right = parent
+        return node
+
+    def rotate_left(self, node):
+        '''
+        Rotacion de nodo izquierdo con respecto a su padre
+        '''
+        parent = node.parent
+        node.parent = parent.parent
+        parent.parent = node
+        parent.right = node.left
+        node.left = parent
+        return node
+
+    def set_as_root(self, node):
+        '''
+        Cambia el valor de la raíz por la ultima clave insertada
+        '''
+        while node.parent != None:
+            if node.parent.left == node:
+                node = self.rotate_right(node)
+            else:
+                node = self.rotate_left(node)
+        self.root = node
+        return node
+
