@@ -26,38 +26,42 @@ class SkipList(object):
         (en caso de que no esté presente), en la lista más 'baja'.
         '''
         update = [None]*self.maxHeight
+        comparisons = 0;
         x = self.head
         for i in reversed(range(self.maxHeight)):
             while x.next[i] != None and x.next[i].key < key:
                 x = x.next[i]
+                comparisons += 1
             update[i] = x
-        return update
+        return (update, comparisons)
 
-    def insert(self, key):
+    def add(self, key):
+        "Inserta un elemento y retorna el numero de comparaciones que se hicieron"
         node = SkipNode(self.randomHeight(), key)
 
         self.maxHeight = max(self.maxHeight, len(node.next))
         while len(self.head.next) < len(node.next):
             self.head.next.append(None)
 
-        update = self.closestNodes(key)            
-        if self.search(key, update) == None:
+        (update, comparisons) = self.closestNodes(key)            
+        if self.search(key, update)[0] == None:
             for i in range(len(node.next)):
                 node.next[i] = update[i].next[i]
                 update[i].next[i] = node
             self.len += 1
 
+        return comparisons
+
     def search(self, key, update = None):
+        "Busca un elemento y lo retorna si lo encuentra, o None si no. Tambien entrega las comparaciones realizadas"
+        comparisons = 0
         if update == None:
-            update = self.closestNodes(key)
+            (update, comparisons) = self.closestNodes(key)
         if len(update) > 0:
             candidate = update[0].next[0]
             if candidate != None and candidate.key == key:
-                return candidate
-        return None
-    
-    def contains(self, key, update = None):
-        return self.search(key, update) != None
+                return (candidate, comparisons)
+        return (None, comparisons)
 
     def randomHeight(self):
         height = 1
