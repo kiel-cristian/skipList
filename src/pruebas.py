@@ -68,7 +68,7 @@ def main(elements):
     sequence           = RandomSequence(elements, 10**5)
     iteration          = 0
 
-    while (not init) or (abbr_comps/abb_comps > 1.15 or abb_comps/abbr_comps > 1.15):
+    while (not init) or abb_comps/abbr_comps <= 1.15:
         if not init:
             init = True
 
@@ -110,8 +110,8 @@ def main(elements):
         # Siguiente iteración
         sequence.elements = abb_elements
 
-    print('comps: ' + str(abb_comps) + ',' + str(abbr_comps) + ',' + str(skip_comps) + '\n')
-    print('swaps: ' + str(swaps_amount))
+    print('comps: ' + str(abb_comps) + ',' + str(abbr_comps) + ',' + str(skip_comps))
+    print('swaps: ' + str(swaps_amount) + '\n')
 
 if __name__ == "__main__":
     for i in [10**4 , 2*10**4 , 5*10**4]:
