@@ -56,7 +56,7 @@ class RandomSequence(object):
             new_seq[second_element] = self.elements[first_element]
         return new_seq
 
-def main(elements):
+def main(elements, adjust):
     '''
     Pricipal
     '''
@@ -67,19 +67,24 @@ def main(elements):
     init               = False
     sequence           = RandomSequence(elements, 10**5)
     iteration          = 0
+    mean_height        = 0
 
-    while (not init) or abs(abb_comps - abbr_comps) > abbr_comps*0.15:
+    while (not init) or abs(abb_comps - abbr_comps) > min(abbr_comps, abbr_comps)*adjust:
         if not init:
             init = True
 
         # Número de iteracion para acercar comportamiento de árboles
         iteration += 1
-        # print('iteration: ' + str(iteration))
+        print('iteration: ' + str(iteration))
 
         # Contadores
         abb_comps    = 0
         abbr_comps   = 0
         skip_comps   = 0
+
+        abb_search_comps    = 0
+        abbr_search_comps   = 0
+        skip_search_comps   = 0
 
         # Se definen las estructuras
         abb_tree  = ABB()
@@ -99,26 +104,40 @@ def main(elements):
         for i in range(searches):
             if i < not_found_searches:
                 elem = sequence.get_random_free_element()
-                abb_comps  += abb_tree.search(elem)[1]
-                abbr_comps += abbr_tree.search(elem)[1]
-                skip_comps += skip_list.search(elem)[1]
             else:
                 elem = sequence.get_random_element()
-                abb_comps  += abb_tree.search(elem)[1]
-                abbr_comps += abbr_tree.search(elem)[1]
-                skip_comps += skip_list.search(elem)[1]
+            abb_search_comps  += abb_tree.search(elem)[1]
+            abbr_search_comps += abbr_tree.search(elem)[1]
+            skip_search_comps += skip_list.search(elem)[1]
+
+        # Altura de skip list
+        mean_height += skip_list.max_height
 
         # Siguiente iteración
         sequence.elements = abb_elements
-        abb_comps  = abb_comps/(insertions + searches)
-        abbr_comps = abbr_comps/(insertions + searches)
-        skip_comps = skip_comps/(insertions + searches)
 
-    print('comps: ' + str(abb_comps) + ',' + str(abbr_comps) + ',' + str(skip_comps))
+    # Resultados: Inserciones
+    abb_comps  = abb_comps/insertions
+    abbr_comps = abbr_comps/insertions
+    skip_comps = skip_comps/insertions
+
+    # Resultados: Busquedas
+    abb_search_comps  = abb_search_comps/searches
+    abbr_search_comps = abbr_search_comps/searches
+    skip_search_comps = skip_search_comps/searches
+
+    # Resultados: Altura de Skip List
+    mean_height = mean_height/iteration
+
+    print('insertions: ' + str(abb_comps) + ',' + str(abbr_comps) + ',' + str(skip_comps))
+    print('searches: ' + str(abb_search_comps) + ',' + str(abbr_search_comps) + ',' + str(skip_search_comps))
+    print('skiplist height: ' + str(mean_height))
     print('iterations: ' + str(iteration))
     print('swaps: ' + str(swaps_amount) + '\n')
+    print('total swaps: ' + str(swaps_amount*iteration))
+
 
 if __name__ == "__main__":
-    for i in [10**4 , 2*10**4 , 5*10**4]:
-        print('n :' + str(i))
-        main(i)
+    for elements in [10**4 , 2*10**4 , 5*10**4]:
+        print('n :' + str(elements))
+        main(elements, 0.10)
