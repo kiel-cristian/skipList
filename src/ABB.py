@@ -39,6 +39,7 @@ class ABB(object):
             else:
                 next = node.right
             comps += 1
+
         new_node = Node(node, key)
         if key < node.key:
             node.left = new_node
@@ -109,7 +110,7 @@ class ABBRandom(ABB):
         '''
         Cambia el valor de la raíz por la ultima clave insertada
         '''
-        while node.parent != None:
+        while node.parent != None and node != node.parent:
             if node.parent.left == node:
                 node = self.rotate_right(node)
             else:
