@@ -39,7 +39,7 @@ class SkipList(object):
             update[i] = node_x
         return (update, comparisons)
 
-    def add(self, key):
+    def insert(self, key):
         '''
         Inserta un elemento y retorna el numero de comparaciones que se hicieron
         '''
