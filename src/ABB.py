@@ -28,8 +28,10 @@ class ABB(object):
         if self.root == None:
             self.root = Node(None, key)
             return (self.root, 1)
+
         node = self.root
         next = node
+
         while next != None:
             node = next
             if key < node.key:
@@ -114,3 +116,10 @@ class ABBRandom(ABB):
                 node = self.rotate_left(node)
         self.root = node
         return node
+
+if __name__ == '__main__':
+    abb = ABB()
+    abb_r = ABBRandom()
+    for i in range(1,1000):
+        abb.insert(i)
+        abb.insert(i)
