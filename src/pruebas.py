@@ -72,8 +72,9 @@ def main(elements):
         if not init:
             init = True
 
+        # Número de iteracion para acercar comportamiento de árboles
         iteration += 1
-        print('iteration: ' + str(iteration))
+        # print('iteration: ' + str(iteration))
 
         # Contadores
         abb_comps    = 0
@@ -114,6 +115,7 @@ def main(elements):
         skip_comps = skip_comps/(insertions + searches)
 
     print('comps: ' + str(abb_comps) + ',' + str(abbr_comps) + ',' + str(skip_comps))
+    print('iterations: ' + str(iteration))
     print('swaps: ' + str(swaps_amount) + '\n')
 
 if __name__ == "__main__":
