@@ -60,7 +60,7 @@ def main(elements):
     '''
     Pricipal
     '''
-
+    insertions         = elements
     searches           = int(0.5*elements)
     not_found_searches = int(0.25*searches)
     swaps_amount       = int(0.005*elements)
@@ -68,7 +68,7 @@ def main(elements):
     sequence           = RandomSequence(elements, 10**5)
     iteration          = 0
 
-    while (not init) or abb_comps/abbr_comps <= 1.15:
+    while (not init) or abs(abb_comps - abbr_comps) > abbr_comps*0.15:
         if not init:
             init = True
 
@@ -89,7 +89,7 @@ def main(elements):
         abb_elements = sequence.k_swaps(swaps_amount)
 
         # Inserciones
-        for i in range(sequence.length):
+        for i in range(insertions):
             abb_comps  += abb_tree.insert(abb_elements[i])
             abbr_comps += abbr_tree.insert(sequence.get_element(i))
             skip_comps += skip_list.insert(sequence.get_element(i))
@@ -109,6 +109,9 @@ def main(elements):
 
         # Siguiente iteración
         sequence.elements = abb_elements
+        abb_comps  = abb_comps/(insertions + searches)
+        abbr_comps = abbr_comps/(insertions + searches)
+        skip_comps = skip_comps/(insertions + searches)
 
     print('comps: ' + str(abb_comps) + ',' + str(abbr_comps) + ',' + str(skip_comps))
     print('swaps: ' + str(swaps_amount) + '\n')
