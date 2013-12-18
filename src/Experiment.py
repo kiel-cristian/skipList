@@ -164,6 +164,7 @@ def main(elements, adjust, exp):
 
     analizer.compute_errors()
     analizer.show_results()
+    print('\n')
 
 if __name__ == "__main__":
     for elements in [10**4 , 2*10**4 , 5*10**4]:
