@@ -87,7 +87,7 @@ def main(elements, exp):
 
     for e in range(exp):
         sequence = RandomSequence(elements, 10**5)
-        swaps_amount = int(0.55*elements) # swaps
+        swaps_amount = int(0.7*elements) # swaps
 
         # Contadores
         abb_comps    = 0
@@ -153,4 +153,4 @@ def main(elements, exp):
 
 if __name__ == "__main__":
     for elements in [10**4 , 2*10**4 , 5*10**4]:
-        main(elements, 10)
+        main(elements, 20)
