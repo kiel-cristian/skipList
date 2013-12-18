@@ -83,19 +83,22 @@ def main(elements, adjust, exp):
     not_found_searches = int(0.25*searches)
     swaps_amount       = int(0.005*elements)
     init               = False
-    sequence           = RandomSequence(elements, 10**5)
     iteration          = 0
     mean_height        = 0
     analizer           = ExperimentAnalyzer(exp)
+    print('n :' + str(elements))
+    print('experiments: ' + str(exp))
 
     for e in range(exp):
+        sequence           = RandomSequence(elements, 10**5)
+
         while (not init) or abb_comps - abbr_comps > abbr_comps*adjust:
             if not init:
                 init = True
 
             # Número de iteracion para acercar comportamiento de árboles
             iteration += 1
-            print('.')
+            print('.'),
 
             # Contadores
             abb_comps    = 0
@@ -164,5 +167,4 @@ def main(elements, adjust, exp):
 
 if __name__ == "__main__":
     for elements in [10**4 , 2*10**4 , 5*10**4]:
-        print('n :' + str(elements))
         main(elements, 0.10, 1)
