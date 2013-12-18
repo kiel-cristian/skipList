@@ -74,7 +74,7 @@ def getTestData():
         r.insert(seq.get_element(i))
     return (a, r)
 
-def main(elements, adjust, exp):
+def main(elements, exp):
     '''
     Principal
     '''
@@ -87,7 +87,7 @@ def main(elements, adjust, exp):
 
     for e in range(exp):
         sequence = RandomSequence(elements, 10**5)
-        swaps_amount = int(0.8*elements) # swaps
+        swaps_amount = int(0.55*elements) # swaps
 
         # Contadores
         abb_comps    = 0
@@ -109,8 +109,8 @@ def main(elements, adjust, exp):
         # Inserciones
         for i in range(insertions):
             abb_comps  += abb_tree.insert(abb_elements[i])
-            abbr_comps += abbr_tree.insert(sequence.get_element(i))
-            skip_comps += skip_list.insert(sequence.get_element(i))
+            abbr_comps += abbr_tree.insert(abb_elements[i])
+            skip_comps += skip_list.insert(abb_elements[i])
 
         # Busquedas
         for i in range(searches):
@@ -153,4 +153,4 @@ def main(elements, adjust, exp):
 
 if __name__ == "__main__":
     for elements in [10**4 , 2*10**4 , 5*10**4]:
-        main(elements, 0.10, 10)
+        main(elements, 10)

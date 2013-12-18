@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import sys
 from random import randint
 from SkipList import *
 from ABB import *
@@ -81,7 +82,7 @@ def main(elements, adjust, exp):
     insertions         = elements
     searches           = int(0.5*elements)
     not_found_searches = int(0.25*searches)
-    swaps_amount       = int(0.005*elements)
+    swaps_amount       = int(0.05*elements) # aumentando la cantidad de swaps de cada iteracion
     init               = False
     iteration          = 0
     mean_height        = 0
@@ -99,6 +100,7 @@ def main(elements, adjust, exp):
             # Número de iteracion para acercar comportamiento de árboles
             iteration += 1
             print('.'),
+            sys.stdout.flush()
 
             # Contadores
             abb_comps    = 0
@@ -168,4 +170,4 @@ def main(elements, adjust, exp):
 
 if __name__ == "__main__":
     for elements in [10**4 , 2*10**4 , 5*10**4]:
-        main(elements, 0.10, 1)
+        main(elements, 0.10, 5)
