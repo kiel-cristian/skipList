@@ -10,21 +10,26 @@ class RandomSequence(object):
     Estructura de datos que mantiene una secuencia ordenada de enteros entre 0 y "max_n", de largo "length"
     '''
     def __init__(self, length, max_n):
-        self.elements = [randint(0, max_n) for i in range(length)]
-        self.elements.sort()
-        self.free_elements = [i for i in range(max_n) if not self.find_element(i)]
+        (self.elements, self.free_elements) = self.random_sequence(length, max_n)
         self.f_length = len(self.free_elements)
         self.max_n  = max_n
         self.length = length
 
-    def find_element(self, elem):
-        '''
-        Busca un elemento en la secuencia y retorna True si se encuentra en ella, False si ocurre lo contrario
-        '''
-        for it_elem in self.elements:
-            if elem == it_elem:
-                return True
-        return False
+    def random_sequence(self, length, max):
+        elements = []
+        free_elements = []
+        num = 0
+        while len(elements) < length:
+            if num > max:
+                elements = []
+                free_elements = []
+                num = 0
+            if randint(0, max) <= length:
+                elements.append(num)
+            else:
+                free_elements.append(num)
+            num +=1
+        return (elements, free_elements)
 
     def get_element(self, elem):
         '''
@@ -56,7 +61,18 @@ class RandomSequence(object):
             new_seq[second_element] = self.elements[first_element]
         return new_seq
 
-def main(elements):
+def getTestData():
+    a = ABB()
+    r = ABBRandom()
+    seq = RandomSequence(10**4, 10**5)
+    k = int(0.005*seq.length)
+    abb_seq = seq.k_swaps(k)
+    for i in range(0, seq.length):
+        a.insert(abb_seq[i])
+        r.insert(seq.get_element(i))
+    return (a, r)
+
+def main(elements, adjust):
     '''
     Principal
     '''
@@ -67,19 +83,24 @@ def main(elements):
     init               = False
     sequence           = RandomSequence(elements, 10**5)
     iteration          = 0
+    mean_height        = 0
 
-    while (not init) or abs(abb_comps - abbr_comps) > abbr_comps*0.15:
+    while (not init) or abb_comps - abbr_comps > abbr_comps*adjust:
         if not init:
             init = True
 
         # Número de iteracion para acercar comportamiento de árboles
         iteration += 1
-        # print('iteration: ' + str(iteration))
+        print('iteration: ' + str(iteration))
 
         # Contadores
         abb_comps    = 0
         abbr_comps   = 0
         skip_comps   = 0
+
+        abb_search_comps    = 0
+        abbr_search_comps   = 0
+        skip_search_comps   = 0
 
         # Se definen las estructuras
         abb_tree  = ABB()
@@ -99,26 +120,40 @@ def main(elements):
         for i in range(searches):
             if i < not_found_searches:
                 elem = sequence.get_random_free_element()
-                abb_comps  += abb_tree.search(elem)[1]
-                abbr_comps += abbr_tree.search(elem)[1]
-                skip_comps += skip_list.search(elem)[1]
             else:
                 elem = sequence.get_random_element()
-                abb_comps  += abb_tree.search(elem)[1]
-                abbr_comps += abbr_tree.search(elem)[1]
-                skip_comps += skip_list.search(elem)[1]
+            abb_search_comps  += abb_tree.search(elem)[1]
+            abbr_search_comps += abbr_tree.search(elem)[1]
+            skip_search_comps += skip_list.search(elem)[1]
+
+        # Altura de skip list
+        mean_height += skip_list.max_height
 
         # Siguiente iteración
         sequence.elements = abb_elements
-        abb_comps  = abb_comps/(insertions + searches)
-        abbr_comps = abbr_comps/(insertions + searches)
-        skip_comps = skip_comps/(insertions + searches)
 
-    print('comps: ' + str(abb_comps) + ',' + str(abbr_comps) + ',' + str(skip_comps))
+    # Resultados: Inserciones
+    abb_comps  = abb_comps/insertions
+    abbr_comps = abbr_comps/insertions
+    skip_comps = skip_comps/insertions
+
+    # Resultados: Busquedas
+    abb_search_comps  = abb_search_comps/searches
+    abbr_search_comps = abbr_search_comps/searches
+    skip_search_comps = skip_search_comps/searches
+
+    # Resultados: Altura de Skip List
+    mean_height = mean_height/iteration
+
+    print('insertions: ' + str(abb_comps) + ',' + str(abbr_comps) + ',' + str(skip_comps))
+    print('searches: ' + str(abb_search_comps) + ',' + str(abbr_search_comps) + ',' + str(skip_search_comps))
+    print('skiplist height: ' + str(mean_height))
     print('iterations: ' + str(iteration))
     print('swaps: ' + str(swaps_amount) + '\n')
+    print('total swaps: ' + str(swaps_amount*iteration))
+
 
 if __name__ == "__main__":
-    for i in [10**4 , 2*10**4 , 5*10**4]:
-        print('n :' + str(i))
-        main(i)
+    for elements in [10**4 , 2*10**4 , 5*10**4]:
+        print('n :' + str(elements))
+        main(elements, 0.10)

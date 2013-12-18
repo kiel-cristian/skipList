@@ -23,7 +23,7 @@
 \vspace{1cm}
 \end{figure}
 \begin{center}
-\vspace{4cm} {\Huge Tarea 3: Skip Lists y Árboles Binarios}
+\vspace{4cm} {\Huge Tarea 3: Skip Lists y ABB Aleatorizados}
 
 \vspace{1cm} {\Large CC4102 - Diseño y Análisis de Algoritmos}
 \vspace{7.5cm}
@@ -55,7 +55,8 @@ En el presente trabajo se pretende determinar cuál de estas estructuras es mejo
 \section{Implementación}
 A continuación se detalla la implementación de las estructuras que serán comparadas: Skip List (SL), Árbol Binario de Búsqueda (ABB), y ABB Aleatorizado. Todas se implementaron en Python.
 
-\subsection{SL}
+\subsection{Skip List}
+\label{sec:sl}
 
 \begin{figure}[ht]
 \centering
@@ -64,7 +65,9 @@ A continuación se detalla la implementación de las estructuras que serán comp
 \label{fig:skip}
 \end{figure}
 
-La estructura de una Skip List se aprecia en la figura \ref{fig:skip}. Para implementarla se definieron las clases SkipNode y SkipList.
+La estructura de una Skip List se aprecia en la figura \ref{fig:skip}. La altura de cada nodo (cantidad de $duplicados$ que tiene en listas superiores) se determina del siguiente modo: se elige con probabilidad $\frac{1}{2}$ si el nodo tiene un duplicado en el nivel $i$ (comenzando con $i=2$), y en caso afirmativo se procede con la elección para el nivel $i+1$, en caso negativo se termina el proceso. Todo nodo tiene al menos altura $1$ (está presente en la primera lista).\\
+
+Para implementar esta estructura se definieron las clases SkipNode y SkipList.
 
 \subsubsection{Clase SkipNode}
 Representa a cada nodo y sus duplicados en listas superiores. Consiste simplemente en una llave $key$ y una lista $next$ de tamaño $n$, donde para cada $i \in [0,n)$, $next_{i}$ es un puntero al siguiente elemento de la i-ésima lista de la Skip List.
@@ -72,7 +75,12 @@ Representa a cada nodo y sus duplicados en listas superiores. Consiste simplemen
 \subsubsection{Clase SkipList}
 Representa a la lista en sí, la cual está conformada por un SkipNode $head$ y las operaciones de inserción y búsqueda.\\
 
-Detallar operaciones acá.
+La inserción funciona del siguiente modo:
+
+\begin{itemize}
+\item	Se crea un SkipNode $node$ con la llave $k$ que se desea insertar, y una altura determinada con el método explicado en \ref{sec:sl}.
+\item	Bla, bla, bla.
+\end{itemize}
 
 
 \subsection{ABB}
@@ -92,8 +100,6 @@ Un nodo $node$ se lleva desde su posición de inserción a la raíz $root$ del �
 	\end{itemize}
 \item	$root := node$
 \end{itemize}
-
-Las operaciones de rotación se observan en la figura \ref{fig:rotaciones}.
 
 \begin{figure}[ht]
 \centering
