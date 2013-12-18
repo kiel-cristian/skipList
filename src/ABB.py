@@ -4,12 +4,11 @@
 from random import randint
 
 class Node(object):
-    def __init__(self, parent, key):
-        #Se mantiene referencia al padre para las rotaciones
-        self.parent = parent
+    def __init__(self, key):
         self.left  = None
         self.right = None
         self.key   = key
+        self.children = 0
 
 class ABB(object):
     '''
@@ -17,16 +16,14 @@ class ABB(object):
     '''
     def __init__(self):
         self.root = None
-        self.nodes = 0
 
     def add_node(self, key):
         '''
         Agrega un nodo en el árbol raíz actual
         '''
         comps = 0
-        self.nodes += 1
         if self.root == None:
-            self.root = Node(None, key)
+            self.root = Node(key)
             return (self.root, 1)
 
         node = self.root
@@ -39,19 +36,18 @@ class ABB(object):
             else:
                 next = node.right
             comps += 1
-
-        new_node = Node(node, key)
+        new_node = Node(key)
         if key < node.key:
             node.left = new_node
         else:
             node.right = new_node
-        return (node, comps)
+        return comps
 
     def insert(self, key):
         '''
         Inserta un nodo en el árbol
         '''
-        return self.add_node(key)[1]
+        return self.add_node(key)
 
     def search(self, key):
         '''
@@ -69,58 +65,83 @@ class ABB(object):
 
 class ABBRandom(ABB):
     '''
-    Cabezera de árbol binario aleatorizado
+    Cabecera de árbol binario aleatorizado
     '''
     def __init__(self):
         super(ABBRandom, self).__init__()
 
     def insert(self, key):
-        '''
-        Inserción aleatorizada, inserta con probabilidad 1/n en la raíz, si no,
-        se efectúa una inserción normal
-        '''
-        (node, comps) = self.add_node(key)
-        if randint(1, self.nodes) == self.nodes:
-            self.set_as_root(node)
+        (self.root, comps) = self.insert_rec(self.root, key)
         return comps
 
-    def rotate_right(self, node):
+    def insert_rec(self, node, key):
         '''
-        Rotacion de nodo izquierdo con respecto a su padre
+        Inserción aleatorizada, inserta con probabilidad 1/(n+1) en la raíz del
+        sub-árbol cuya raíz actual es "node".
         '''
-        parent = node.parent
-        node.parent = parent.parent
-        parent.parent = node
-        parent.left = node.right
-        node.right = parent
-        return node
+        if node == None:
+            return (Node(key), 0)
+        if randint(0, node.children) == node.children:
+            return self.insert_at_root(node, key)
+        if key < node.key:
+            (node.left, comps) = self.insert_rec(node.left, key)
+        else:
+            (node.right, comps) = self.insert_rec(node.right, key)
+        node.children += 1
+        return (node, comps + 1)
+
+    def insert_at_root(self, node, key):
+        '''
+        Inserta un nodo de llave "key" en la raíz de este sub-árbol,
+        cuya raíz actual es "node".
+        '''
+        if node == None:
+            return (Node(key), 0)
+        if key < node.key:
+            (node.left, comps) = self.insert_at_root(node.left, key)
+            node = self.rotate_right(node)
+        else:
+            (node.right, comps) = self.insert_at_root(node.right, key)
+            node = self.rotate_left(node)
+        return (node, comps + 1)
+
+    def count_children(self, node):
+        '''
+        Cuenta los hijos de un nodo dado
+        '''
+        if node.left == None:
+            left = 0
+        else:
+            left = node.left.children + 1
+        if node.right == None:
+            right = 0
+        else:
+            right = node.right.children + 1
+        return left + right
 
     def rotate_left(self, node):
         '''
         Rotacion de nodo derecho con respecto a su padre
         '''
-        parent = node.parent
-        node.parent = parent.parent
-        parent.parent = node
-        parent.right = node.left
-        node.left = parent
-        return node
+        new_node = node.right
+        node.right = new_node.left
+        new_node.left = node
+        new_node.children = self.count_children(new_node)
+        return new_node
 
-    def set_as_root(self, node):
+    def rotate_right(self, node):
         '''
-        Cambia el valor de la raíz por la ultima clave insertada
+        Rotacion de nodo izquierdo con respecto a su padre
         '''
-        while node.parent != None and node != node.parent:
-            if node.parent.left == node:
-                node = self.rotate_right(node)
-            else:
-                node = self.rotate_left(node)
-        self.root = node
-        return node
+        new_node = node.left
+        node.left = new_node.right
+        new_node.right = node
+        new_node.children = self.count_children(new_node)
+        return new_node
 
 if __name__ == '__main__':
     abb = ABB()
     abb_r = ABBRandom()
     for i in range(1,1000):
         abb.insert(i)
-        abb.insert(i)
+        abb_r.insert(i)

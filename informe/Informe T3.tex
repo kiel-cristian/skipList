@@ -65,7 +65,7 @@ A continuación se detalla la implementación de las estructuras que serán comp
 \label{fig:skip}
 \end{figure}
 
-La estructura de una Skip List se aprecia en la figura \ref{fig:skip}. La altura de cada nodo (cantidad de $duplicados$ que tiene en listas superiores) se determina del siguiente modo: se elige con probabilidad $\frac{1}{2}$ si el nodo tiene un duplicado en el nivel $i$ (comenzando con $i=2$), y en caso afirmativo se procede con la elección para el nivel $i+1$, en caso negativo se termina el proceso. Todo nodo tiene al menos altura $1$ (está presente en la primera lista).\\
+La estructura de una Skip List se aprecia en la figura \ref{fig:skip}. La altura de cada nodo (cantidad de punteros que tiene en listas superiores) se determina del siguiente modo: se elige con probabilidad $\frac{1}{2}$ si el nodo tiene un puntero en el nivel $i$ (comenzando con $i=2$), y en caso afirmativo se procede con la elección para el nivel $i+1$, en caso negativo se termina el proceso. Todo nodo tiene al menos altura $1$ (está presente en la primera lista).\\
 
 Para implementar esta estructura se definieron las clases SkipNode y SkipList.
 
@@ -79,7 +79,12 @@ La inserción funciona del siguiente modo:
 
 \begin{itemize}
 \item	Se crea un SkipNode $node$ con la llave $k$ que se desea insertar, y una altura determinada con el método explicado en \ref{sec:sl}.
-\item	Bla, bla, bla.
+\item	Si la altura de $node$ es mayor a la de $head$, se añaden a $head$ los niveles faltantes (con $None$).
+\item	Se obtiene la lista de nodos más cercanos por la izquierda en cada nivel, $u := closest\_nodes(k)$
+\item	Para cada nodo ...
+	\begin{itemize}
+	\item	Bla
+	\end{itemize}
 \end{itemize}
 
 
