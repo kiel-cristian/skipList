@@ -4,6 +4,8 @@
 from random import randint
 from SkipList import *
 from ABB import *
+from ABBRandom import *
+from Analizer import *
 
 class RandomSequence(object):
     '''
@@ -72,26 +74,20 @@ def getTestData():
         r.insert(seq.get_element(i))
     return (a, r)
 
-def main(elements, adjust):
+def main(elements, exp):
     '''
     Principal
     '''
     insertions         = elements
     searches           = int(0.5*elements)
     not_found_searches = int(0.25*searches)
-    swaps_amount       = int(0.005*elements)
-    init               = False
-    sequence           = RandomSequence(elements, 10**5)
-    iteration          = 0
-    mean_height        = 0
+    analizer           = ExperimentAnalyzer(exp)
+    print('n :' + str(elements))
+    print('experiments: ' + str(exp))
 
-    while (not init) or abb_comps - abbr_comps > abbr_comps*adjust:
-        if not init:
-            init = True
-
-        # Número de iteracion para acercar comportamiento de árboles
-        iteration += 1
-        print('iteration: ' + str(iteration))
+    for e in range(exp):
+        sequence = RandomSequence(elements, 10**5)
+        swaps_amount = int(0.7*elements) # swaps
 
         # Contadores
         abb_comps    = 0
@@ -113,8 +109,8 @@ def main(elements, adjust):
         # Inserciones
         for i in range(insertions):
             abb_comps  += abb_tree.insert(abb_elements[i])
-            abbr_comps += abbr_tree.insert(sequence.get_element(i))
-            skip_comps += skip_list.insert(sequence.get_element(i))
+            abbr_comps += abbr_tree.insert(abb_elements[i])
+            skip_comps += skip_list.insert(abb_elements[i])
 
         # Busquedas
         for i in range(searches):
@@ -127,33 +123,32 @@ def main(elements, adjust):
             skip_search_comps += skip_list.search(elem)[1]
 
         # Altura de skip list
-        mean_height += skip_list.max_height
+        mean_height = 1.0*skip_list.max_height
 
-        # Siguiente iteración
-        sequence.elements = abb_elements
+        # Suma de resultados promedio (n operaciones)
+        # Resultados: Inserciones
+        abb_comps  = 1.0*abb_comps/insertions
+        abbr_comps = 1.0*abbr_comps/insertions
+        skip_comps = 1.0*skip_comps/insertions
 
-    # Resultados: Inserciones
-    abb_comps  = abb_comps/insertions
-    abbr_comps = abbr_comps/insertions
-    skip_comps = skip_comps/insertions
+        # Resultados: Busquedas
+        abb_search_comps  = 1.0*abb_search_comps/searches
+        abbr_search_comps = 1.0*abbr_search_comps/searches
+        skip_search_comps = 1.0*skip_search_comps/searches
 
-    # Resultados: Busquedas
-    abb_search_comps  = abb_search_comps/searches
-    abbr_search_comps = abbr_search_comps/searches
-    skip_search_comps = skip_search_comps/searches
+        print('\ninsertions: ' + str(abb_comps) + ',' + str(abbr_comps) + ',' + str(skip_comps))
+        print('searches: ' + str(abb_search_comps) + ',' + str(abbr_search_comps) + ',' + str(skip_search_comps))
+        print('skiplist height: ' + str(mean_height))
+        print('total swaps: ' + str(swaps_amount))
 
-    # Resultados: Altura de Skip List
-    mean_height = mean_height/iteration
+        analizer.add_abb_result(abb_comps, abb_search_comps, swaps_amount)
+        analizer.add_abbr_result(abbr_comps, abbr_search_comps)
+        analizer.add_skip_list_result(skip_comps, skip_search_comps, mean_height)
 
-    print('insertions: ' + str(abb_comps) + ',' + str(abbr_comps) + ',' + str(skip_comps))
-    print('searches: ' + str(abb_search_comps) + ',' + str(abbr_search_comps) + ',' + str(skip_search_comps))
-    print('skiplist height: ' + str(mean_height))
-    print('iterations: ' + str(iteration))
-    print('swaps: ' + str(swaps_amount) + '\n')
-    print('total swaps: ' + str(swaps_amount*iteration))
-
+    analizer.compute_errors()
+    analizer.show_results()
+    print('\n')
 
 if __name__ == "__main__":
     for elements in [10**4 , 2*10**4 , 5*10**4]:
-        print('n :' + str(elements))
-        main(elements, 0.10)
+        main(elements, 20)
