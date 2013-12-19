@@ -242,10 +242,31 @@ Se calcularon los tiempos de inserción y búsqueda promedio en función de $n$,
 \end{figure}
 \textbf{Modelo de ajuste:} $1.6797 \times \log(n) - 2.3632$
 
-\subsection{Altura promedio de Skip List}
-
+\newpage
 \subsection{Comparación entre ABB y ABB aleatorizado}
+El diseño del experimento garantiza una convergencia en cuanto a la cantidad de comparaciones entre el ABB y el ABB aleatorizado (cada iteración disminuye las comparaciones de un ABB normal y se acerca más a un ABB aleatorizado).
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{swaps.eps}
+\caption{Comparación de claves vs cantidad de swaps sobre la entrada..}
+\label{fig:swaps}
+\end{figure}
+\FloatBarrier
+En la figura \ref{fig:swaps} se puede apreciar, en el caso de $n = 10000$ la convergencia en cuanto a comparaciones del ABB ( y además la seudo independencia a la entrada tanto del ABB aleatorizado y de la SkipList).\\
+
+Ahora, los resultados fueron los siguientes:
+
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{global_swaps.eps}
+\caption{Swaps vs cantidad de elementos.}
+\label{fig:swaps}
+\end{figure}
+\FloatBarrier
 Los ABB normales mostraron ser vulnerables a la entrada y alcanzar una cercanía en cuanto a comportamiento a un ABB aleatorizado después de una cantidad cercana a $6/10*n$ en promedio.
+
+
 
 \section{Conclusiones}
 Los ABB son absolutamente vulnerables al orden en la entrada, y por ende, su convergencia en cuanto a comportamiento se alcanza luego de que el arreglo está completamente desordenado en promedio (la cantidad de swaps necesario para alcanzar este comportamiento es cercano a 7/10*n). Una vez que se alcanza este parecido en comportamiento con los ABB aleatorizados, se puede concluir que se comportan de igual forma, y además, que los ABB aleatorizados son inmunes a la entrada.\\

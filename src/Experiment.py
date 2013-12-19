@@ -99,7 +99,7 @@ def main(elements, adjust, exp):
 
             # Número de iteracion para acercar comportamiento de árboles
             iteration += 1
-            print('.'),
+            # print('.'),
             sys.stdout.flush()
 
             # Se definen las estructuras
@@ -140,6 +140,8 @@ def main(elements, adjust, exp):
 
             # Siguiente iteración
             sequence.elements = abb_elements
+
+            # print(str(1.0*abb_comps/insertions) + ' ' + str(1.0*abbr_comps/insertions) + ' ' + str(1.0*skip_comps/insertions))
 
         # Suma de resultados promedio (n operaciones)
         # Resultados: Inserciones

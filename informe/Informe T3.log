@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.9.12)  19 DEC 2013 01:01
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.9.12)  19 DEC 2013 01:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -579,6 +579,10 @@ Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 ) (./Informe T3.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
+
+
+LaTeX Warning: Label `fig:swaps' multiply defined.
+
 )
 \openout1 = `"Informe T3.aux"'.
 
@@ -720,22 +724,34 @@ File: iSL.eps Graphic file (type eps)
 File: sABBR.eps Graphic file (type eps)
  <sABBR.eps> [9]
 File: sSL.eps Graphic file (type eps)
- <sSL.eps>
-Underfull \hbox (badness 10000) in paragraph at lines 251--252
+ <sSL.eps> [10]
+File: swaps.eps Graphic file (type eps)
+ <swaps.eps>
+Underfull \hbox (badness 10000) in paragraph at lines 256--257
 
  []
 
-[10] [11] (./Informe T3.aux
+File: global_swaps.eps Graphic file (type eps)
+<global_swaps.eps> [11]
+Underfull \hbox (badness 10000) in paragraph at lines 272--273
+
+ []
+
+[12] [13] (./Informe T3.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
-) ) 
+)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6487 strings out of 495060
- 92424 string characters out of 3182053
- 167489 words of memory out of 3000000
- 9577 multiletter control sequences out of 15000+200000
+ 6492 strings out of 495060
+ 92485 string characters out of 3182053
+ 167537 words of memory out of 3000000
+ 9580 multiletter control sequences out of 15000+200000
  10102 words of font info for 38 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  44i,5n,42p,913b,318s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on "Informe T3.dvi" (12 pages, 22580 bytes).
+Output written on "Informe T3.dvi" (14 pages, 23368 bytes).
