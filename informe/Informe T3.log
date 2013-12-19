@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.9.12)  18 DEC 2013 23:58
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=latex 2013.9.12)  19 DEC 2013 00:09
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -711,11 +711,7 @@ File: rotations.eps Graphic file (type eps)
  <rotations.eps> [5] [6] (./Informe T3.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
-)
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
+) ) 
 Here is how much of TeX's memory you used:
  6473 strings out of 495060
  92298 string characters out of 3182053
@@ -723,6 +719,6 @@ Here is how much of TeX's memory you used:
  9567 multiletter control sequences out of 15000+200000
  10102 words of font info for 38 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,5n,42p,1143b,318s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 44i,5n,42p,1146b,318s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on "Informe T3.dvi" (7 pages, 18684 bytes).
+Output written on "Informe T3.dvi" (7 pages, 19124 bytes).
