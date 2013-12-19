@@ -180,6 +180,7 @@ Las rotaciones de nodo se implementaron según el esquema de la figura \ref{fig:
 \end{figure}
 
 \section{Experimentos}
+\label{sec:exp}
 Se llevaron a cabo los siguientes experimentos:
 
 \begin{itemize}
@@ -197,7 +198,48 @@ Se llevaron a cabo los siguientes experimentos:
 
 Los resultados se presentan en las secciones siguientes.
 
+\newpage
 \subsection{Tiempos de inserción y búsqueda}
+Se calcularon los tiempos de inserción y búsqueda promedio en función de $n$, a partir de diversas repeticiones del experimento explicado en la sección \ref{sec:exp}. Estos tiempos se midieron como comparaciones de llaves. A continuación se muestran los gráficos que muestran el comportamiento de las operaciones, y las curvas de ajuste que se encontraron.\\
+
+\subsubsection{Inserción en ABB aleatorizado}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{iABBR.eps}
+\caption{Inserción en ABB aleatorizado.}
+\label{fig:iabbr}
+\end{figure}
+\textbf{Modelo de ajuste:} $2.1886 \times \log(n) - 4.0455$
+
+\newpage
+\subsubsection{Inserción en Skip Lists}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{iSL.eps}
+\caption{Inserción en Skip List.}
+\label{fig:isl}
+\end{figure}
+\textbf{Modelo de ajuste:} $1.6022 \times \log(n) - 3.6407$
+
+\newpage
+\subsubsection{Búsqueda en ABB aleatorizado}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{sABBR.eps}
+\caption{Búsqueda en ABB aleatorizado.}
+\label{fig:sabbr}
+\end{figure}
+\textbf{Modelo de ajuste:} $2.1799 \times \log(n) - 2.1612$
+
+\newpage
+\subsubsection{Búsqueda en Skip Lists}
+\begin{figure}[ht]
+\centering
+\includegraphics[scale=0.7]{sSL.eps}
+\caption{Búsqueda en Skip List.}
+\label{fig:ssl}
+\end{figure}
+\textbf{Modelo de ajuste:} $1.6797 \times \log(n) - 2.3632$
 
 \subsection{Altura promedio de Skip List}
 
