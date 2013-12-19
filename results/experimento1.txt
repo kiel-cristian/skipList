@@ -1,9 +1,0 @@
-n :10000
-comps: 206,232,11
-iterations: 5
-swaps: 50
-
-n :20000
-comps: 184,173,11
-iterations: 7
-swaps: 100

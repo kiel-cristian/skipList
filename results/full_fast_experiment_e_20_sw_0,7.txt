@@ -1,0 +1,343 @@
+n :10000
+experiments: 20
+
+insertions: 18.4141,14.8815,11.792
+searches: 19.1526,15.7578,11.6254
+skiplist height: 13.0
+total swaps: 7000
+
+insertions: 16.6837,16.0278,11.9664
+searches: 17.5774,17.5236,11.8558
+skiplist height: 12.0
+total swaps: 7000
+
+insertions: 18.0898,15.11,10.5834
+searches: 18.9068,15.6614,11.7058
+skiplist height: 14.0
+total swaps: 7000
+
+insertions: 16.8996,15.0927,10.246
+searches: 17.652,15.7406,11.1382
+skiplist height: 15.0
+total swaps: 7000
+
+insertions: 21.6678,15.1496,11.3796
+searches: 22.4514,15.726,12.1458
+skiplist height: 13.0
+total swaps: 7000
+
+insertions: 16.3263,16.1219,11.2985
+searches: 17.0298,16.5098,11.8664
+skiplist height: 19.0
+total swaps: 7000
+
+insertions: 18.0898,16.595,10.3507
+searches: 18.817,16.0276,10.7824
+skiplist height: 16.0
+total swaps: 7000
+
+insertions: 18.1714,16.4748,11.542
+searches: 18.8852,17.6848,10.5466
+skiplist height: 13.0
+total swaps: 7000
+
+insertions: 16.4455,15.8421,10.2035
+searches: 17.3342,16.8816,11.685
+skiplist height: 14.0
+total swaps: 7000
+
+insertions: 16.8578,15.1754,10.5491
+searches: 17.617,15.6714,10.9966
+skiplist height: 14.0
+total swaps: 7000
+
+insertions: 15.9321,15.8234,10.3528
+searches: 16.7688,16.5544,11.2362
+skiplist height: 13.0
+total swaps: 7000
+
+insertions: 18.7575,14.8982,10.9654
+searches: 19.3216,15.1902,12.8828
+skiplist height: 11.0
+total swaps: 7000
+
+insertions: 17.5351,16.0167,11.9155
+searches: 18.3072,16.758,12.6768
+skiplist height: 15.0
+total swaps: 7000
+
+insertions: 17.6723,15.9898,10.3202
+searches: 18.3426,17.358,10.703
+skiplist height: 12.0
+total swaps: 7000
+
+insertions: 18.5162,16.1621,11.4275
+searches: 19.0546,15.7302,12.527
+skiplist height: 13.0
+total swaps: 7000
+
+insertions: 17.0362,14.4465,10.5758
+searches: 17.7894,15.4344,11.3038
+skiplist height: 13.0
+total swaps: 7000
+
+insertions: 18.3313,16.0154,11.5451
+searches: 19.136,15.4654,11.8786
+skiplist height: 15.0
+total swaps: 7000
+
+insertions: 17.202,15.3394,10.3305
+searches: 17.7998,16.0998,10.4936
+skiplist height: 15.0
+total swaps: 7000
+
+insertions: 16.2122,15.7321,10.84
+searches: 16.8308,15.5298,12.3564
+skiplist height: 14.0
+total swaps: 7000
+
+insertions: 16.794,16.1481,10.9619
+searches: 17.5646,17.021,12.8382
+skiplist height: 13.0
+total swaps: 7000
+ABB:
+     i: 17.581735 +- 5.60382507628
+     s: 18.31694 +- 5.54587081782
+ABBR:
+     i: 15.652125 +- 2.58547314384
+     s: 16.21629 +- 3.31958660649
+SkipList:
+     i: 10.957295 +- 2.62840582664
+     s: 11.66222 +- 3.29052057766
+Swaps: 7000 +- 0.0
+SList heigth: 13.85 +- 7.51997340421
+
+
+n :20000
+experiments: 20
+
+insertions: 19.6835,17.02955,11.70795
+searches: 20.4361,17.2693,12.34
+skiplist height: 13.0
+total swaps: 14000
+
+insertions: 18.703,16.4673,11.6151
+searches: 19.4815,17.0803,12.2411
+skiplist height: 15.0
+total swaps: 14000
+
+insertions: 18.387,16.79275,12.05175
+searches: 19.1749,16.9316,13.8997
+skiplist height: 16.0
+total swaps: 14000
+
+insertions: 20.46825,16.9362,11.21995
+searches: 21.1213,17.7455,12.0405
+skiplist height: 16.0
+total swaps: 14000
+
+insertions: 20.92225,16.77955,11.03745
+searches: 21.7372,16.8776,12.0204
+skiplist height: 14.0
+total swaps: 14000
+
+insertions: 18.3725,16.86575,11.5023
+searches: 19.0534,17.4316,12.0461
+skiplist height: 19.0
+total swaps: 14000
+
+insertions: 17.32455,16.4652,11.33275
+searches: 18.1737,17.1599,12.4812
+skiplist height: 15.0
+total swaps: 14000
+
+insertions: 19.8513,17.61405,11.25875
+searches: 20.7379,18.0246,11.6823
+skiplist height: 17.0
+total swaps: 14000
+
+insertions: 19.7693,16.7132,11.911
+searches: 20.4863,16.8241,13.2689
+skiplist height: 15.0
+total swaps: 14000
+
+insertions: 18.50565,16.89185,10.9394
+searches: 19.3659,17.1734,11.8407
+skiplist height: 16.0
+total swaps: 14000
+
+insertions: 21.5468,16.57565,11.9675
+searches: 22.3372,16.8457,13.0316
+skiplist height: 16.0
+total swaps: 14000
+
+insertions: 21.04485,16.25995,11.85905
+searches: 21.7712,16.923,12.7686
+skiplist height: 17.0
+total swaps: 14000
+
+insertions: 18.9106,16.6113,11.20325
+searches: 19.5659,17.3921,12.1768
+skiplist height: 17.0
+total swaps: 14000
+
+insertions: 19.08385,16.8022,10.90995
+searches: 19.8878,16.8638,11.2635
+skiplist height: 15.0
+total swaps: 14000
+
+insertions: 17.6202,16.92995,11.69975
+searches: 18.3736,17.8069,12.1182
+skiplist height: 18.0
+total swaps: 14000
+
+insertions: 18.38415,16.35715,11.93045
+searches: 19.0893,16.9405,12.6159
+skiplist height: 15.0
+total swaps: 14000
+
+insertions: 20.05695,17.08195,11.9762
+searches: 20.7541,16.7809,13.3765
+skiplist height: 15.0
+total swaps: 14000
+
+insertions: 18.5372,16.39,12.32735
+searches: 19.2074,17.2221,13.5708
+skiplist height: 14.0
+total swaps: 14000
+
+insertions: 17.7061,16.66075,12.35535
+searches: 18.5173,17.0403,13.4164
+skiplist height: 17.0
+total swaps: 14000
+
+insertions: 20.03765,16.6507,12.46875
+searches: 20.5953,17.0892,13.1698
+skiplist height: 15.0
+total swaps: 14000
+ABB:
+     i: 19.2457825 +- 5.23292879432
+     s: 19.993365 +- 5.18203647474
+ABBR:
+     i: 16.74375 +- 1.33942676172
+     s: 17.17112 +- 1.53459842043
+SkipList:
+     i: 11.6637 +- 2.0680844724
+     s: 12.56845 +- 3.10656695566
+Swaps: 14000 +- 0.0
+SList heigth: 15.75 +- 6.30476010646
+
+
+n :50000
+experiments: 20
+
+insertions: 22.51562,18.32408,13.22808
+searches: 23.33328,18.95204,13.81408
+skiplist height: 18.0
+total swaps: 35000
+
+insertions: 20.5445,18.23726,13.3034
+searches: 21.35232,18.87536,14.10124
+skiplist height: 19.0
+total swaps: 35000
+
+insertions: 23.21978,19.90974,13.21084
+searches: 23.95432,21.22696,14.31228
+skiplist height: 15.0
+total swaps: 35000
+
+insertions: 20.93774,19.45462,12.40732
+searches: 21.6634,19.6032,13.1994
+skiplist height: 16.0
+total swaps: 35000
+
+insertions: 21.22468,17.9156,14.28174
+searches: 21.84556,18.3462,15.7304
+skiplist height: 15.0
+total swaps: 35000
+
+insertions: 22.40248,19.2214,13.47104
+searches: 23.18516,19.65088,14.24644
+skiplist height: 16.0
+total swaps: 35000
+
+insertions: 22.69912,18.83376,13.056
+searches: 23.38856,20.71408,13.84556
+skiplist height: 21.0
+total swaps: 35000
+
+insertions: 21.59654,18.2338,12.82296
+searches: 22.30568,18.58608,15.14176
+skiplist height: 16.0
+total swaps: 35000
+
+insertions: 21.15314,18.67514,13.56688
+searches: 21.9538,18.78452,15.32832
+skiplist height: 14.0
+total swaps: 35000
+
+insertions: 19.59328,19.3738,13.76322
+searches: 20.46172,20.70024,14.61428
+skiplist height: 18.0
+total swaps: 35000
+
+insertions: 20.0877,18.33342,13.13068
+searches: 20.90064,19.6258,13.68764
+skiplist height: 19.0
+total swaps: 35000
+
+insertions: 19.55656,18.2347,13.20882
+searches: 20.17364,18.8598,13.6418
+skiplist height: 18.0
+total swaps: 35000
+
+insertions: 21.89294,18.68194,14.75512
+searches: 22.55156,19.02784,14.97768
+skiplist height: 15.0
+total swaps: 35000
+
+insertions: 19.67266,18.45024,12.58842
+searches: 20.52268,18.90264,12.93108
+skiplist height: 15.0
+total swaps: 35000
+
+insertions: 21.94428,18.62046,14.76678
+searches: 22.62708,19.08372,14.91908
+skiplist height: 16.0
+total swaps: 35000
+
+insertions: 21.61872,19.48362,13.74602
+searches: 22.43372,19.84336,13.4348
+skiplist height: 16.0
+total swaps: 35000
+
+insertions: 20.72644,19.36188,12.95874
+searches: 21.61504,19.79024,13.74112
+skiplist height: 19.0
+total swaps: 35000
+
+insertions: 24.10156,18.6696,12.75502
+searches: 24.79788,19.35236,13.67948
+skiplist height: 19.0
+total swaps: 35000
+
+insertions: 20.5037,19.05326,12.82264
+searches: 21.18864,20.57716,14.21836
+skiplist height: 19.0
+total swaps: 35000
+
+insertions: 19.33442,20.6844,12.50736
+searches: 20.06332,20.227,13.36648
+skiplist height: 17.0
+total swaps: 35000
+ABB:
+     i: 21.266293 +- 5.72229851576
+     s: 22.0159 +- 5.65161476437
+ABBR:
+     i: 18.887636 +- 2.96594746394
+     s: 19.536474 +- 3.51626173236
+SkipList:
+     i: 13.317554 +- 2.94117499501
+     s: 14.146564 +- 3.31439241124
+Swaps: 35000 +- 0.0
+SList heigth: 17.05 +- 8.30361367117

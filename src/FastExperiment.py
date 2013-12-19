@@ -123,7 +123,7 @@ def main(elements, exp):
             skip_search_comps += skip_list.search(elem)[1]
 
         # Altura de skip list
-        mean_height = skip_list.max_height
+        mean_height = 1.0*skip_list.max_height
 
         # Suma de resultados promedio (n operaciones)
         # Resultados: Inserciones
@@ -136,12 +136,10 @@ def main(elements, exp):
         abbr_search_comps = 1.0*abbr_search_comps/searches
         skip_search_comps = 1.0*skip_search_comps/searches
 
-        '''
         print('\ninsertions: ' + str(abb_comps) + ',' + str(abbr_comps) + ',' + str(skip_comps))
         print('searches: ' + str(abb_search_comps) + ',' + str(abbr_search_comps) + ',' + str(skip_search_comps))
         print('skiplist height: ' + str(mean_height))
         print('total swaps: ' + str(swaps_amount))
-        '''
 
         analizer.add_abb_result(abb_comps, abb_search_comps, swaps_amount)
         analizer.add_abbr_result(abbr_comps, abbr_search_comps)

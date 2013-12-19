@@ -84,8 +84,6 @@ def main(elements, adjust, exp):
     not_found_searches = int(0.25*searches)
     swaps_amount       = int(0.05*elements) # aumentando la cantidad de swaps de cada iteracion
     init               = False
-    iteration          = 0
-    mean_height        = 0
     analizer           = ExperimentAnalyzer(exp)
     print('n :' + str(elements))
     print('experiments: ' + str(exp))
@@ -95,12 +93,19 @@ def main(elements, adjust, exp):
 
         while (not init) or abb_comps - abbr_comps > abbr_comps*adjust:
             if not init:
+                mean_height = 0
+                iteration   = 0
                 init = True
 
             # Número de iteracion para acercar comportamiento de árboles
             iteration += 1
             print('.'),
             sys.stdout.flush()
+
+            # Se definen las estructuras
+            abb_tree  = ABB()
+            abbr_tree = ABBRandom()
+            skip_list = SkipList()
 
             # Contadores
             abb_comps    = 0
@@ -110,11 +115,6 @@ def main(elements, adjust, exp):
             abb_search_comps    = 0
             abbr_search_comps   = 0
             skip_search_comps   = 0
-
-            # Se definen las estructuras
-            abb_tree  = ABB()
-            abbr_tree = ABBRandom()
-            skip_list = SkipList()
 
             # Lista para ABB
             abb_elements = sequence.k_swaps(swaps_amount)
@@ -136,7 +136,7 @@ def main(elements, adjust, exp):
                 skip_search_comps += skip_list.search(elem)[1]
 
             # Altura de skip list
-            mean_height += skip_list.max_height
+            mean_height += 1.0*skip_list.max_height
 
             # Siguiente iteración
             sequence.elements = abb_elements
@@ -164,10 +164,13 @@ def main(elements, adjust, exp):
         analizer.add_abbr_result(abbr_comps, abbr_search_comps)
         analizer.add_skip_list_result(skip_comps, skip_search_comps, mean_height)
 
+        init = False
+
+    print('\n')
     analizer.compute_errors()
     analizer.show_results()
     print('\n')
 
 if __name__ == "__main__":
     for elements in [10**4 , 2*10**4 , 5*10**4]:
-        main(elements, 0.10, 5)
+        main(elements, 0.10, 10)
