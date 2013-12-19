@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.7.27)  18 DEC 2013 23:12
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.7.27)  18 DEC 2013 23:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -576,10 +576,7 @@ Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 \l_MT_below_intertext_dim=\dimen150
 \l_MT_above_shortintertext_dim=\dimen151
 \l_MT_below_shortintertext_dim=\dimen152
-) (./Informe T3.aux
-LaTeX Info: Redefining \. on input line 6.
-LaTeX Info: Redefining \% on input line 6.
-)
+) (./Informe T3.aux)
 \openout1 = `"Informe T3.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -685,22 +682,21 @@ File: logo_departamento.eps Graphic file (type eps)
 
 
 Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(./Informe T3.toc
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-LaTeX Font Info:    Try loading font information for U+msa on input line 4.
- (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 4.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-))
+(./Informe T3.toc)
 \tf@toc=\write4
 \openout4 = `"Informe T3.toc"'.
 
  [1]
+LaTeX Font Info:    Try loading font information for U+msa on input line 54.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2009/06/22 v3.00 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 54.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2009/06/22 v3.00 AMS symbols B
+)
 Underfull \hbox (badness 10000) in paragraph at lines 54--55
 
  []
@@ -712,6 +708,10 @@ Underfull \hbox (badness 10000) in paragraph at lines 56--57
 
 File: skiplist.eps Graphic file (type eps)
 <skiplist.eps>
+
+LaTeX Warning: Reference `fig:skip' on page 2 undefined on input line 73.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 73--74
 
  []
@@ -739,6 +739,9 @@ Underfull \hbox (badness 10000) in paragraph at lines 101--102
  []
 
 
+LaTeX Warning: Reference `sec:sl' on page 3 undefined on input line 105.
+
+
 Underfull \hbox (badness 10000) in paragraph at lines 116--117
 
  []
@@ -754,30 +757,41 @@ Underfull \hbox (badness 10000) in paragraph at lines 135--136
  []
 
 [4]
+
+LaTeX Warning: Reference `fig:rotaciones' on page 5 undefined on input line 173
+.
+
 File: rotations.eps Graphic file (type eps)
- <rotations.eps> [5
+<rotations.eps> [5
 Non-PDF special ignored!] [6] (./Informe T3.aux
 LaTeX Info: Redefining \. on input line 6.
 LaTeX Info: Redefining \% on input line 6.
-) ) 
+)
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+ ) 
 Here is how much of TeX's memory you used:
  6901 strings out of 495059
  99744 string characters out of 3182030
- 176304 words of memory out of 3000000
+ 176246 words of memory out of 3000000
  9964 multiletter control sequences out of 15000+200000
  10102 words of font info for 38 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
- 44i,5n,42p,1143b,318s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmsy8.pfb>
-Output written on "Informe T3.pdf" (7 pages, 112099 bytes).
+ 44i,5n,42p,1146b,288s stack positions out of 5000i,500n,10000p,200000b,50000s
+</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
+r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
+blic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
+sfonts/cm/cmsy8.pfb>
+Output written on "Informe T3.pdf" (7 pages, 112121 bytes).
 PDF statistics:
  64 PDF objects out of 1000 (max. 8388607)
  45 compressed objects within 1 object stream
