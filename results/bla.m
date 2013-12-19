@@ -7,8 +7,11 @@ insertn20abbr = [17.15155 18.0494 17.35815 17.68725 17.6777 18.32485 17.8953 17.
 insertn20sl = [12.8931 11.4958 11.78085 12.95175 12.0059 12.57445 11.96915 13.56575 12.9497 12.32685];
 
 X = [10000 20000 50000];
+Xs = [5000 10000 25000];
 x = 0:100:60000;
+xs = 0:100:30000;
 logX = log(X);
+logXs = log(Xs);
 iABBRY = [16.06416 17.71326 19.59822];
 iSLY = [10.9876 12.45133 13.597384];
 sABBRY = [16.32106 18.06532 19.850128];
@@ -16,8 +19,8 @@ sSLY = [11.85996 13.25466 14.583764];
 
 c = polyfit(logX,iABBRY,1)
 c = polyfit(logX,iSLY,1)
-c = polyfit(logX,sABBRY,1)
-c = polyfit(logX,sSLY,1)
+c = polyfit(logXs,sABBRY,1)
+c = polyfit(logXs,sSLY,1)
 
 #{
 c = polyfit(logX,iABBRY,1)
@@ -41,26 +44,26 @@ xlabel ("Número de inserciones");
 ylabel ("Promedio de comparaciones por inserción");
 print -dsvg iSL.svg
 hold off; clearplot;
-#}
-c = polyfit(logX,sABBRY,1)
-f = c(2).+c(1).*log(x);
+
+c = polyfit(logXs,sABBRY,1)
+f = c(2).+c(1).*log(xs);
 hold on;
-axis([0 60000 0 25]);
-plot(X, sABBRY, '-or');
-plot(x, f);
+axis([0 30000 0 25]);
+plot(Xs, sABBRY, '-or');
+plot(xs, f);
 xlabel ("Número de búsquedas");
 ylabel ("Promedio de comparaciones por búsqueda");
 print -dsvg sABBR.svg
 hold off; clearplot;
-#{
-c = polyfit(logX,sSLY,1)
-f = c(2).+c(1).*log(x);
+#}
+c = polyfit(logXs,sSLY,1)
+f = c(2).+c(1).*log(xs);
 hold on;
-axis([0 60000 0 25]);
-plot(X, sSLY, '-or');
-plot(x, f);
+axis([0 30000 0 25]);
+plot(Xs, sSLY, '-or');
+plot(xs, f);
 xlabel ("Número de búsquedas");
 ylabel ("Promedio de comparaciones por búsqueda");
 print -dsvg sSL.svg
 hold off; clearplot;
-#}
+#{ #}

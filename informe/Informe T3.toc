@@ -7,7 +7,11 @@
 \contentsline {subsection}{\numberline {2.2}ABB}{4}
 \contentsline {subsection}{\numberline {2.3}ABB Aleatorizado}{4}
 \contentsline {section}{\numberline {3}Experimentos}{6}
-\contentsline {subsection}{\numberline {3.1}Tiempos de inserci\IeC {\'o}n y b\IeC {\'u}squeda}{6}
-\contentsline {subsection}{\numberline {3.2}Altura promedio de Skip List}{6}
-\contentsline {subsection}{\numberline {3.3}Comparaci\IeC {\'o}n entre ABB y ABB aleatorizado}{6}
-\contentsline {section}{\numberline {4}Conclusiones}{6}
+\contentsline {subsection}{\numberline {3.1}Tiempos de inserci\IeC {\'o}n y b\IeC {\'u}squeda}{7}
+\contentsline {subsubsection}{\numberline {3.1.1}Inserci\IeC {\'o}n en ABB aleatorizado}{7}
+\contentsline {subsubsection}{\numberline {3.1.2}Inserci\IeC {\'o}n en Skip Lists}{8}
+\contentsline {subsubsection}{\numberline {3.1.3}B\IeC {\'u}squeda en ABB aleatorizado}{9}
+\contentsline {subsubsection}{\numberline {3.1.4}B\IeC {\'u}squeda en Skip Lists}{10}
+\contentsline {subsection}{\numberline {3.2}Altura promedio de Skip List}{10}
+\contentsline {subsection}{\numberline {3.3}Comparaci\IeC {\'o}n entre ABB y ABB aleatorizado}{10}
+\contentsline {section}{\numberline {4}Conclusiones}{10}
