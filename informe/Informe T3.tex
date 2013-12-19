@@ -175,6 +175,23 @@ Las rotaciones de nodo se implementaron según el esquema de la figura \ref{fig:
 \end{figure}
 
 \section{Experimentos}
+Se llevaron a cabo los siguientes experimentos:
+
+\begin{itemize}
+\item[1.] Generar una secuencia ordenada de n números; donde $n \in \{10^{4}, 2 \times 10^{4} , 5 \times 10^{4}\}$ y los números corresponden a un subconjunto de enteros entre $[0, 10^{5}]$.
+\item[2.] Repetir hasta que, para la secuencia ingresada, se obtenga un comportamiento similar entre los ABB normales y los ABB aleatorizados:
+	\begin{itemize}
+	\item[2.1] Almacenar en cada estructura de datos una secuencia de n números.
+		\begin{itemize}
+		\item[2.1.1] En los ABB normales se aplican $k$ swaps antes de realizar la secuencia de inserciones; donde $k = 0.005 \times n$. En cada swap se seleccionan aleatoriamente 2 elementos de la secuencia de entrada y se intercambian.
+		\end{itemize}
+	\item[2.2] Buscar $m$ valores en la estructura de datos; donde $m = 0.5 \times n$ y de los cuales $25\%$ corresponden a búsquedas infructuosas.
+	\item[2.3] Utilizar la secuencia obtenida después de aplicar los k swaps en la siguiente iteración.
+	\end{itemize}
+\end{itemize}
+
+Los resultados se presentan en las secciones siguientes.
+
 \subsection{Tiempos de inserción y búsqueda}
 \subsection{Altura promedio de Skip List}
 \subsection{Comparación entre ABB y ABB aleatorizado}
