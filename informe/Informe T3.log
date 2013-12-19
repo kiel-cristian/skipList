@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.7.27)  18 DEC 2013 23:58
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012/Debian) (format=pdflatex 2013.7.27)  19 DEC 2013 01:14
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -576,7 +576,10 @@ Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 \l_MT_below_intertext_dim=\dimen150
 \l_MT_above_shortintertext_dim=\dimen151
 \l_MT_below_shortintertext_dim=\dimen152
-) (./Informe T3.aux)
+) (./Informe T3.aux
+LaTeX Info: Redefining \. on input line 6.
+LaTeX Info: Redefining \% on input line 6.
+)
 \openout1 = `"Informe T3.aux"'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 23.
@@ -665,136 +668,4 @@ Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/etexcmds.sty
 Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 Package etexcmds Info: Could not find \expanded.
-(etexcmds)             That can mean that you are not using pdfTeX 1.50 or
-(etexcmds)             that some package has redefined \expanded.
-(etexcmds)             In the latter case, load this package earlier.
-)))
-
-Package epstopdf Warning: Drivers other than `pdftex.def' are not supported.
-
-)
-\c@lstlisting=\count138
-Package caption Info: Begin \AtBeginDocument code.
-Package caption Info: subfig package v1.3 is loaded.
-Package caption Info: End \AtBeginDocument code.
-File: logo_departamento.eps Graphic file (type eps)
- <logo_departamento.eps> [1
-
-
-Non-PDF special ignored!{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]
-(./Informe T3.toc)
-\tf@toc=\write4
-\openout4 = `"Informe T3.toc"'.
-
- [1]
-LaTeX Font Info:    Try loading font information for U+msa on input line 54.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2009/06/22 v3.00 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 54.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2009/06/22 v3.00 AMS symbols B
-)
-Underfull \hbox (badness 10000) in paragraph at lines 54--55
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 56--57
-
- []
-
-File: skiplist.eps Graphic file (type eps)
-<skiplist.eps>
-
-LaTeX Warning: Reference `fig:skip' on page 2 undefined on input line 73.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
-
- []
-
-[2
-Non-PDF special ignored!]
-Underfull \hbox (badness 10000) in paragraph at lines 81--82
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 83--84
-
- []
-
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 91.
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 91.
-
-Underfull \hbox (badness 10000) in paragraph at lines 101--102
-
- []
-
-
-LaTeX Warning: Reference `sec:sl' on page 3 undefined on input line 105.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 116--117
-
- []
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 133--134
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 135--136
-
- []
-
-[4]
-
-LaTeX Warning: Reference `fig:rotaciones' on page 5 undefined on input line 173
-.
-
-File: rotations.eps Graphic file (type eps)
-<rotations.eps> [5
-Non-PDF special ignored!] [6] (./Informe T3.aux
-LaTeX Info: Redefining \. on input line 6.
-LaTeX Info: Redefining \% on input line 6.
-)
-
-LaTeX Warning: There were undefined references.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
- ) 
-Here is how much of TeX's memory you used:
- 6901 strings out of 495059
- 99744 string characters out of 3182030
- 176246 words of memory out of 3000000
- 9964 multiletter control sequences out of 15000+200000
- 10102 words of font info for 38 fonts, out of 3000000 for 9000
- 14 hyphenation exceptions out of 8191
- 44i,5n,42p,1146b,288s stack positions out of 5000i,500n,10000p,200000b,50000s
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texli
-ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/fonts/ty
-pe1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
-blic/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmsy8.pfb>
-Output written on "Informe T3.pdf" (7 pages, 112121 bytes).
-PDF statistics:
- 64 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
- 0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+(etexcmds)             That can mean that you are not us
