@@ -18,7 +18,7 @@
 
 \DeclarePairedDelimiter{\ceil}{\lceil}{\rceil}
 
-\def \altura {\ceil{\log_2 n} +1}
+\def \altura {\ceil{\log_2 n}}
 
 \begin{document}
 \begin{titlepage}
@@ -200,6 +200,7 @@ Los resultados se presentan en las secciones siguientes.
 
 \newpage
 \subsection{Tiempos de inserción y búsqueda}
+\label{sec:tiempos}
 Se calcularon los tiempos de inserción y búsqueda promedio en función de $n$, a partir de diversas repeticiones del experimento explicado en la sección \ref{sec:exp}. Estos tiempos se midieron como comparaciones de llaves. A continuación se muestran los gráficos que muestran el comportamiento de las operaciones, y las curvas de ajuste que se encontraron.\\
 
 \subsubsection{Inserción en ABB aleatorizado}
@@ -247,7 +248,9 @@ Se calcularon los tiempos de inserción y búsqueda promedio en función de $n$,
 Los ABB normales mostraron ser vulnerables a la entrada y alcanzar una cercanía en cuanto a comportamiento a un ABB aleatorizado después de una cantidad cercana a $6/10*n$ en promedio.
 
 \section{Conclusiones}
-Los ABB son absolutamente vulnerables al orden en la entrada, y por ende, su convergencia en cuanto a comportamiento se alcanza luego de que el arreglo está completamente desordenado en promedio (la cantidad de swaps necesario para alcanzar este comportamiento es cercano a 7/10*n). Una vez que se alcanza este parecido en comportamiento con los ABB aleatorizados, se puede concluir que se comportan de igual forma, y además, que los ABB aleatorizados son inmunes a la entrada. Las SkipList sin embargo, se comportan mejor que ambas estructuras debido a que su aleatorización tiene una independencia estructural muy grande. Mientras los ABB aleatorizados deben efectuar rotaciones en base a un árbol no perfectamente balanceado las SkipList agregan atajos con cierta probabilidad, lo que, visto a nivel macro, es equivalente a rehacer completamente el árbol y mantener además el invariante de balanceo de hijos. Una SkipList se comporta en promedio de igual forma que un árbol de búsqueda binario perfectamente balanceado lo que implica que su altura es $\altura$ con alta probabilidad.
+Los ABB son absolutamente vulnerables al orden en la entrada, y por ende, su convergencia en cuanto a comportamiento se alcanza luego de que el arreglo está completamente desordenado en promedio (la cantidad de swaps necesario para alcanzar este comportamiento es cercano a 7/10*n). Una vez que se alcanza este parecido en comportamiento con los ABB aleatorizados, se puede concluir que se comportan de igual forma, y además, que los ABB aleatorizados son inmunes a la entrada.\\
+
+Sin embargo, de los resultados obtenidos en la sección \ref{sec:tiempos} podemos observar que las Skip List se comportan mejor que los ABB, lo que se deduce a partir de que las constantes que multiplican al logaritmo en los modelos de ajuste son menores tanto en el caso de la inserción como la búsqueda. Esto se debe a que su aleatorización tiene una independencia estructural muy grande. Mientras los ABB aleatorizados deben efectuar rotaciones en base a un árbol no perfectamente balanceado las SkipList agregan atajos con cierta probabilidad, lo que, visto a nivel macro, es equivalente a rehacer completamente el árbol y mantener además el invariante de balanceo de hijos. Una SkipList se comporta en promedio de igual forma que un árbol de búsqueda binario perfectamente balanceado lo que implica que su altura es $\altura$ con alta probabilidad.
 
 %\end{doublespace}
 \end{document}
