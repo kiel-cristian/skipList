@@ -1,0 +1,14 @@
+\select@language {spanish}
+\contentsline {section}{\numberline {1}Introducci\IeC {\'o}n}{2}
+\contentsline {section}{\numberline {2}Implementaci\IeC {\'o}n}{2}
+\contentsline {subsection}{\numberline {2.1}Skip List}{2}
+\contentsline {subsubsection}{\numberline {2.1.1}Clase SkipNode}{3}
+\contentsline {subsubsection}{\numberline {2.1.2}Clase SkipList}{3}
+\contentsline {subsection}{\numberline {2.2}ABB}{4}
+\contentsline {subsection}{\numberline {2.3}ABB Aleatorizado}{4}
+\contentsline {section}{\numberline {3}Experimentos}{6}
+\contentsline {subsection}{\numberline {3.1}Tiempos de inserci\IeC {\'o}n y b\IeC {\'u}squeda}{6}
+\contentsline {subsection}{\numberline {3.2}Cantidad de swaps en la entrada}{6}
+\contentsline {subsection}{\numberline {3.3}Altura promedio de Skip List}{6}
+\contentsline {subsection}{\numberline {3.4}Comparaci\IeC {\'o}n entre ABB y ABB aleatorizado}{6}
+\contentsline {section}{\numberline {4}Conclusiones}{6}
