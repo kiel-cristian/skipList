@@ -81,7 +81,7 @@ class ABBRandom(ABB):
         '''
         if node == None:
             return (Node(key), 0)
-        if randint(0, node.children) == node.children:
+        if randint(0, node.children + 1) == node.children:
             return self.insert_at_root(node, key)
         if key < node.key:
             (node.left, comps) = self.insert_rec(node.left, key)
@@ -126,6 +126,7 @@ class ABBRandom(ABB):
         new_node = node.right
         node.right = new_node.left
         new_node.left = node
+        node.children = self.count_children(node)
         new_node.children = self.count_children(new_node)
         return new_node
 
@@ -136,6 +137,7 @@ class ABBRandom(ABB):
         new_node = node.left
         node.left = new_node.right
         new_node.right = node
+        node.children = self.count_children(node)
         new_node.children = self.count_children(new_node)
         return new_node
 
